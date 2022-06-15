@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="batis.batis.api.mybatis.SampleMapper">
+    <select id="findAll" resultType="batis.batis.api.sample.SampleResource">
+        select * from sample
+    </select>
+    <select id="findById" parameterType="integer" resultType="batis.batis.api.sample.SampleResource">
+        select * from sample where id = #{id}
+    </select>
+    <insert id="insert" parameterType="batis.batis.api.sample.SampleResource">
+        insert into sample(cd, name) values(#{cd}, #{name})
+    </insert>
+    <update id="update" parameterType="batis.batis.api.sample.SampleResource">
+        update sample set cd = #{cd}, name = #{name} where id = #{id}
+    </update>
+    <delete id="delete" parameterType="integer">
+        delete from sample where id = #{id}
+    </delete>
+</mapper>
